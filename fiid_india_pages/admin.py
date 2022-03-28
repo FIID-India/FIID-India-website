@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Page, Summary, Paragraph
+from .models import Page, Summary, Paragraph, Carousel
 
 class SummaryTabularInline(admin.TabularInline):
     model = Summary
@@ -16,3 +16,4 @@ class PageAdmin(admin.ModelAdmin):
         model = Page
 
 admin.site.register(Page, PageAdmin)
+admin.site.register(Carousel)

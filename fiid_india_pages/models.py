@@ -1,5 +1,14 @@
-from turtle import ondrag
 from django.db import models
+from django.dispatch import receiver
+from django.db.models.signals import pre_delete
+
+class Carousel(models.Model):
+    heading = models.CharField(max_length=300)
+    text = models.CharField(max_length=600)
+    image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return(self.heading)
 
 class Page(models.Model):
     name = models.CharField(max_length=300)
@@ -20,3 +29,8 @@ class Paragraph(models.Model):
 
     def __str__(self):
         return str(self.page)
+
+@receiver(pre_delete, sender=Carousel)
+def Carousel_delete(sender, instance, **kwargs):
+    # Pass false so FileField doesn't save the model.
+    instance.image.delete(False)

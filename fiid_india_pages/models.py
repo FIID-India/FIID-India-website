@@ -38,6 +38,13 @@ class Paragraph(models.Model):
     def __str__(self):
         return str(self.page)
 
+class Address(models.Model):
+    page = models.OneToOneField(Page, on_delete=models.CASCADE)
+    address = models.TextField()
+
+    def __str__(self):
+        return str(self.page)
+
 @receiver(pre_delete, sender=Carousel)
 def Carousel_delete(sender, instance, **kwargs):
     # Pass false so FileField doesn't save the model.

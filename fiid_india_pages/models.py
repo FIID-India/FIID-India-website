@@ -54,6 +54,28 @@ class Contact (models.Model):
     def __str__(self):
         return str(f"From : "+self.email)
 
+class NewslettersAndReports(models.Model):
+    title = models.CharField(max_length=300)
+    date_and_time = models.DateTimeField(auto_now_add=True)
+    message = models.TextField()
+
+    def __str__(self):
+        return str(self.title)
+
+class Reports(models.Model):
+    link = models.ForeignKey(NewslettersAndReports, on_delete=models.CASCADE)
+    report = models.FileField(upload_to='files/reports/')
+
+    def __str__(self):
+        return str(self.link)
+
+class Newsletter(models.Model):
+    link = models.ForeignKey(NewslettersAndReports, on_delete=models.CASCADE)
+    newsletter = models.FileField(upload_to='files/newsletter/')
+
+    def __str__(self):
+        return str(self.link)
+
 @receiver(pre_delete, sender=Carousel)
 def Carousel_delete(sender, instance, **kwargs):
     # Pass false so FileField doesn't save the model.

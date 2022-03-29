@@ -45,6 +45,16 @@ class Address(models.Model):
     def __str__(self):
         return str(self.page)
 
+class Contact (models.Model):
+    full_name = models.CharField(max_length=300)
+    email = models.EmailField()
+    subject = models.CharField(max_length=500)
+    message = models.TextField()
+    date_and_time = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(f"From : "+self.email)
+
 @receiver(pre_delete, sender=Carousel)
 def Carousel_delete(sender, instance, **kwargs):
     # Pass false so FileField doesn't save the model.

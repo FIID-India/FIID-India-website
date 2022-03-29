@@ -1,22 +1,19 @@
-from operator import mod
-from pyexpat import model
-from re import search
 from django.contrib import admin
 from .models import Page, Summary, Paragraph, Carousel, Image, Address, Contact
 
-class SummaryTabularInline(admin.TabularInline):
+class SummaryStackedInline(admin.StackedInline):
     model = Summary
 
-class ParagraphTabularInline(admin.TabularInline):
+class ParagraphStackedInline(admin.StackedInline):
     model = Paragraph
 
-class ImageTabularInline(admin.TabularInline):
+class ImageStackedInline(admin.StackedInline):
     model = Image
 
 class PageAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields=('name',)
-    inlines = [SummaryTabularInline, ParagraphTabularInline, ImageTabularInline]
+    inlines = [SummaryStackedInline, ParagraphStackedInline, ImageStackedInline]
 
     class Meta:
         model = Page

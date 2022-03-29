@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Page, Summary, Paragraph, Carousel, Image, Address, Contact, Newsletter, Reports, NewslettersAndReports
+from .models import (
+    Page, Summary, Paragraph,
+    Carousel, Image, Address,
+    Contact, Newsletter, Reports,
+    NewslettersAndReports, Subscriber
+    )
 
 class SummaryStackedInline(admin.StackedInline):
     model = Summary
@@ -43,8 +48,14 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'date_and_time')
     search_fields = ('full_name', 'email')
 
+class SubscriberAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'email')
+    search_fields = ('full_name', 'email')
+
+
 admin.site.register(Page, PageAdmin)
 admin.site.register(Carousel, CarouselAdmin)
 admin.site.register(Address, AddressAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(NewslettersAndReports, NewslettersAndReportsAdmin)
+admin.site.register(Subscriber, SubscriberAdmin)

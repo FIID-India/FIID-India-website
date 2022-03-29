@@ -76,6 +76,13 @@ class Newsletter(models.Model):
     def __str__(self):
         return str(self.link)
 
+class Subscriber(models.Model):
+    full_name = models.CharField(max_length=400)
+    email = models.EmailField(unique=True)
+
+    def __str__(self):
+        return str(self.full_name)
+
 @receiver(pre_delete, sender=Carousel)
 def Carousel_delete(sender, instance, **kwargs):
     # Pass false so FileField doesn't save the model.

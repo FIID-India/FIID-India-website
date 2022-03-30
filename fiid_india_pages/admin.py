@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import (
     Page, Summary, Paragraph,
     Carousel, Image, Address,
-    Contact, Newsletter, Reports,
+    Contact, Newsletter, Report,
     NewslettersAndReports, Subscriber
     )
 
@@ -19,7 +19,7 @@ class NewsletterStackedInline(admin.StackedInline):
     model = Newsletter
 
 class ReportStackedInline(admin.StackedInline):
-    model = Reports
+    model = Report
 
 class PageAdmin(admin.ModelAdmin):
     list_display = ('name',)

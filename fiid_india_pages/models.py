@@ -62,7 +62,7 @@ class NewslettersAndReports(models.Model):
     def __str__(self):
         return str(self.title)
 
-class Reports(models.Model):
+class Report(models.Model):
     link = models.ForeignKey(NewslettersAndReports, on_delete=models.CASCADE)
     report = models.FileField(upload_to='files/reports/')
 
@@ -93,3 +93,14 @@ def Carousel_delete(sender, instance, **kwargs):
 def Image_delete(sender, instance, **kwargs):
     # Pass false so FileField doesn't save the model.
     instance.image.delete(False)
+
+
+@receiver(pre_delete, sender=Report)
+def file_delete(sender, instance, **kwargs):
+    # Pass false so FileField doesn't save the model.
+    instance.report.delete(False)
+
+@receiver(pre_delete, sender=Newsletter)
+def file_delete(sender, instance, **kwargs):
+    # Pass false so FileField doesn't save the model.
+    instance.newsletter.delete(False)

@@ -1,7 +1,26 @@
+from django import forms
 from django.contrib import admin
 from .models import User
+from django.contrib.auth.admin import UserAdmin as CustomUserAdmin
 
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(CustomUserAdmin):
+    list_display = ('email', 'is_staff', 'is_superuser')
     list_filter = ('is_staff', 'is_superuser')
+    fieldsets = (
+        (None, {'fields': ('email', 'password', 'first_name', 'last_name', 'date_joined', 'last_login')}),
+        ('Permissions', {'fields':('groups','is_staff', 'is_superuser')}),
+    )
+    readonly_fields=('date_joined', 'last_login', 'is_superuser')
+
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email','first_name', 'last_name','password1', 'password2')}
+        ),
+    )
+    search_fields = ('email',)
+    ordering = ('email',)
+    filter_horizontal = ()
+
 
 admin.site.register(User, UserAdmin)

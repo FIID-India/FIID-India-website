@@ -2,8 +2,14 @@ from django import forms
 from django.contrib import admin
 from .models import User
 from django.contrib.auth.admin import UserAdmin as CustomUserAdmin
+from django.forms import CheckboxSelectMultiple
+from django.db import models
+
 
 class UserAdmin(CustomUserAdmin):
+    formfield_overrides = {
+        models.ManyToManyField: {'widget': CheckboxSelectMultiple},
+    }
     list_display = ('email', 'is_staff', 'is_superuser')
     list_filter = ('is_staff', 'is_superuser')
     fieldsets = (

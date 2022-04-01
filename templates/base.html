@@ -32,7 +32,7 @@
         {% include "navbar.html" %}
         {% if messages %}
             {% for message in messages %}
-            <div style="margin-bottom: 0 !important; height:60px; transition: 1s ease-in-out;" class="alert alert-dismissible {% if message.tags %}{{ message.tags }}{% endif %}" id="alert" role="alert">
+            <div style="margin-bottom: 0 !important;" class="alert alert-dismissible {% if message.tags %}{{ message.tags }}{% endif %}" id="alert" role="alert">
                 <div class="text-center">
                     {{message}}
                 </div>

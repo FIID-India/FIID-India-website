@@ -25,7 +25,7 @@ And then to activate virtualenv:
 
     $ source/bin/activate
 
-For more help with virtualenv checkout [Virtualenv Guide](https://gist.github.com/joisemp/273cb3f459209845a21ffb8f6a94f2c1.js).
+For more help with virtualenv checkout [Virtualenv Guide](https://gist.github.com/joisemp/273cb3f459209845a21ffb8f6a94f2c1).
     
 ### Continue to the project.
     

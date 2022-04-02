@@ -1,11 +1,34 @@
 from django.db import models
 from django.dispatch import receiver
 from django.db.models.signals import pre_delete
+from io import BytesIO
+import sys
+import PIL
+from django.core.files.uploadedfile import InMemoryUploadedFile
 
 class Carousel(models.Model):
     heading = models.CharField(max_length=300)
     text = models.CharField(max_length=600)
     image = models.ImageField(upload_to='images/carousel/')
+
+    def save(self):
+        # Opening the uploaded image
+        im = PIL.Image.open(self.image)
+
+        output = BytesIO()
+
+        # Resize/modify the image
+        im = im.resize((1024, 768))
+
+        # after modifications, save it to the output
+        im.save(output, format='JPEG', quality=90)
+        output.seek(0)
+
+        # change the imagefield value to be the newley modifed image value
+        self.image = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
+                                        sys.getsizeof(output), None)
+
+        super(Carousel, self).save()
 
     def __str__(self):
         return(self.heading)
@@ -19,6 +42,25 @@ class Page(models.Model):
 class Image(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='images/pages/')
+
+    def save(self):
+        # Opening the uploaded image
+        im = PIL.Image.open(self.image)
+
+        output = BytesIO()
+
+        # Resize/modify the image
+        im = im.resize((1024, 768))
+
+        # after modifications, save it to the output
+        im.save(output, format='JPEG', quality=90)
+        output.seek(0)
+
+        # change the imagefield value to be the newley modifed image value
+        self.image = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.image.name.split('.')[0], 'image/jpeg',
+                                        sys.getsizeof(output), None)
+
+        super(Image, self).save()
 
     def __str__(self):
         return str(self.page)

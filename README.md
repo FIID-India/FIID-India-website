@@ -23,7 +23,7 @@ use this command to create an virtualenv
     
 And then to activate virtualenv:
 
-    $ source/bin/activate
+    $ source env/bin/activate
 
 For more help with virtualenv checkout [Virtualenv Guide](https://gist.github.com/joisemp/273cb3f459209845a21ffb8f6a94f2c1).
     

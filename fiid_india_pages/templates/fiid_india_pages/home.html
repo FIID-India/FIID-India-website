@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 {% load static %}
-{% url 'fiid-india-pages:about-page' as aboutPage %}
 
     <!-- Carousel -->
     <section>
@@ -80,7 +79,7 @@
           <div class="col-md-7 order-md-2 section-writings">
             <h2 class="section-heading">Our <span class="text-pop">{{programmes.name}}</span></h2>
             <p class="lead">{{programmes.summary.summary}}</p>
-            <button class="btn btn-primary shadow-none" onclick="RedirectTo('../Section_page/index.html')">Learn more</button>
+            <button class="btn btn-primary shadow-none" onclick="RedirectTo('{{programmesPage}}')">Learn more</button>
           </div>
           <div class="col-md-5 order-md-1 section-image">
             {% for item in programmes_images %}

@@ -3,6 +3,7 @@
 {% url 'fiid-india-pages:about-page' as aboutPage %}
 {% url 'fiid-india-pages:programmes-page' as programmesPage %}
 {% url 'fiid-india-pages:objectives-page' as objectivesPage %}
+{% url 'fiid-india-pages:contact-page' as contactPage %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -23,6 +24,9 @@
     {% endif %}
     {% if request.path == aboutPage or request.path == programmesPage or request.path == objectivesPage %}
     <link rel="stylesheet" href="{% static 'section-page/scss/style.css' %}">
+    {% endif %}
+    {% if request.path == contactPage %}
+    <link rel="stylesheet" href="{% static 'contact-page/scss/style.css' %}">
     {% endif %}
     <link rel="stylesheet" href="{% static 'navbar/scss/style.css' %}">
 
@@ -47,7 +51,7 @@
             {% endfor %}
         {% endif %}
 
-        {% if request.path == aboutPage or request.path == programmesPage or request.path == objectivesPage %}
+        {% if request.path == aboutPage or request.path == programmesPage or request.path == objectivesPage or request.path == contactPage %}
         <div class="goback">
             <div class="container">
                 <p class="ps-1" onclick="history.back()"><i class="fa-solid fa-angle-left pe-2"></i> Go back</p>

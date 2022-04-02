@@ -16,15 +16,8 @@
 }
 
 .section h3 {
+  font-size: 1.5rem;
   font-weight: 700;
-}
-
-.section p {
-  padding: 0 3rem 0 0;
-  text-align: justify;
-  font-size: 1.25rem;
-  font-weight: 300;
-  margin-bottom: 2rem;
 }
 
 .section .btn-primary {
@@ -34,7 +27,7 @@
   background-color: #A63BA2;
   border-color: #A63BA2;
   margin-bottom: 1rem;
-  width: 8rem;
+  width: 100%;
 }
 
 .section .btn-primary:hover {
@@ -42,12 +35,16 @@
   border-color: #973c96;
 }
 
-.section-image img {
-  width: 100%;
-  height: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 0.5rem;
+.section .input-wrapper {
+  padding: 0.5rem 4rem;
+}
+
+.section .input-wrapper input {
+  padding: 1rem 0.75rem;
+}
+
+.section-address {
+  margin-top: 0.5rem;
 }
 
 .section-heading {
@@ -66,7 +63,13 @@
     scroll-margin-top: 21rem;
   }
   section img {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+  section .input-wrapper {
+    padding: 0.5rem !important;
+  }
+  section .input-wrapper input {
+    padding: 1rem 0.75rem;
   }
 }
 

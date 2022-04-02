@@ -1,7 +1,6 @@
 $base-color: #A63BA2;
 $base-hover-color:#973c96;
 
-
 .goback{
   margin: 2rem 0 0 0;
   p{
@@ -18,14 +17,8 @@ $base-hover-color:#973c96;
 .section{
   padding: 1rem 0;
   h3{
+    font-size: 1.5rem;
     font-weight: 700;
-  }
-  p{
-    padding: 0 3rem 0 0;
-    text-align: justify;
-    font-size: 1.25rem;
-    font-weight: 300;
-    margin-bottom: 2rem;
   }
   .btn-primary {
     color: #fff;
@@ -34,21 +27,22 @@ $base-hover-color:#973c96;
     background-color: $base-color;
     border-color: $base-color;
     margin-bottom: 1rem;
-    width: 8rem;
+    width: 100%;
     &:hover{
       background-color: $base-hover-color;
       border-color: $base-hover-color;
     }
   }
+  .input-wrapper{
+    padding: 0.5rem 4rem;
+    input{
+      padding: 1rem 0.75rem;
+    }
+  }
 }
 
-.section-image{
-  img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-  }
+.section-address{
+  margin-top: 0.5rem;
 }
 
 .section-heading {
@@ -66,7 +60,13 @@ $base-hover-color:#973c96;
   section{
     scroll-margin-top: 21rem;
     img{
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    .input-wrapper{
+      padding: 0.5rem !important;
+      input{
+        padding: 1rem 0.75rem;
+      }
     }
   }
 }

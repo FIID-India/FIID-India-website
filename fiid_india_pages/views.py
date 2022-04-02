@@ -45,9 +45,9 @@ def home_page_view(request):
             message= f"Great "+full_name+"!! Your are added to our subscribers list"
             messages.success(request, message)
         else:
-         for field, errors in form.errors.items():
-            error = '{}'.format(''.join(errors))
-            messages.error(request, error)
+            for field, errors in form.errors.items():
+                error = '{}'.format(''.join(errors))
+                messages.error(request, error)
             
             
     context["form"] = form
@@ -82,3 +82,21 @@ def objectives_page_view(request):
     except ObjectDoesNotExist:
         pass
     return render(request, "fiid_india_pages/objectives.html", context)
+
+def contact_page_view(request):
+    form = forms.ContactForm()
+    context={}
+    if request.method == "POST":
+        form = forms.ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = forms.ContactForm()
+            message= "Thankyou for contacting us!! We will get back to you soon"
+            messages.success(request, message)
+        else:
+            for field, errors in form.errors.items():
+                error = '{}'.format(''.join(errors))
+                messages.error(request, error)        
+            
+    context["form"] = form
+    return render(request, "fiid_india_pages/contact.html", context)

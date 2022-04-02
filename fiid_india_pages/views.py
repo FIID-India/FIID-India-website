@@ -52,3 +52,13 @@ def home_page_view(request):
             
     context["form"] = form
     return render(request, "fiid_india_pages/home.html", context)
+
+def about_page_view(request):
+    context={}
+    try:
+        about = models.Page.objects.get(name="About")
+        context["about"] = about
+        context["about_images"] = about.image_set.all().order_by('-id')[:3]
+    except ObjectDoesNotExist:
+        pass
+    return render(request, "fiid_india_pages/about.html", context)

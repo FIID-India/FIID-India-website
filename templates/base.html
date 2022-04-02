@@ -1,5 +1,6 @@
 {% load static %}
-{% url 'fiid-india-pages:home-page' as home %}
+{% url 'fiid-india-pages:home-page' as homePage %}
+{% url 'fiid-india-pages:about-page' as aboutPage %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -15,8 +16,11 @@
     <link href="{% static 'navbar/images/logo.png' %}" rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
     <!-- Custom CSS -->
-    {% if request.path == home %}
+    {% if request.path == homePage %}
     <link rel="stylesheet" href="{% static 'home-page/scss/style.css' %}">
+    {% endif %}
+    {% if request.path == aboutPage %}
+    <link rel="stylesheet" href="{% static 'section-page/scss/style.css' %}">
     {% endif %}
     <link rel="stylesheet" href="{% static 'navbar/scss/style.css' %}">
 
@@ -40,8 +44,19 @@
             </div>
             {% endfor %}
         {% endif %}
-        {% block content %}
-        {% endblock %}
+
+        {% if request.path == aboutPage %}
+        <div class="goback">
+            <div class="container">
+                <p class="ps-1" onclick="history.back()"><i class="fa-solid fa-angle-left pe-2"></i> Go back</p>
+                <h2 class="section-heading text-center">{% block title %}{% endblock %}</h2>
+                <hr>
+            </div>
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+
         {% include "footer.html" %}
 
         <!-- Bootstrap Bundle with Popper -->

@@ -72,3 +72,13 @@ def programmes_page_view(request):
     except ObjectDoesNotExist:
         pass
     return render(request, "fiid_india_pages/programmes.html", context)
+
+def objectives_page_view(request):
+    context={}
+    try:
+        objectives = models.Page.objects.get(name="Objectives")
+        context["objectives"] = objectives
+        context["objectives_images"] = objectives.image_set.all().order_by('-id')[:3]
+    except ObjectDoesNotExist:
+        pass
+    return render(request, "fiid_india_pages/objectives.html", context)

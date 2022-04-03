@@ -37,18 +37,18 @@
     <body>
                 
         {% include "navbar.html" %}
-        {% if messages %}
-            {% for message in messages %}
-            <div style="margin-bottom: 0 !important;" class="alert alert-dismissible {% if message.tags %}{{ message.tags }}{% endif %}" id="alert" role="alert">
-                <div class="text-center">
-                    {{message}}
-                </div>
-                <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            {% endfor %}
-        {% endif %}
 
         <div style="margin-top: 3.9rem;">
+            {% if messages %}
+                {% for message in messages %}
+                <div style="margin-bottom: 0 !important;" class="alert alert-dismissible {% if message.tags %}{{ message.tags }}{% endif %}" id="alert" role="alert">
+                    <div class="text-center">
+                        {{message}}
+                    </div>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            {% endif %}
             {% if request.path == aboutPage or request.path == programmesPage or request.path == objectivesPage or request.path == contactPage %}
             <div class="goback">
                 <div class="container">

@@ -3,7 +3,7 @@ from . import models
 from . import forms
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
-
+from . send_email import contact_email
 
 def home_page_view(request):
     form = forms.SubscribeForm()
@@ -89,8 +89,16 @@ def contact_page_view(request):
     if request.method == "POST":
         form = forms.ContactForm(request.POST)
         if form.is_valid():
+
+            full_name = request.POST['full_name']
+            subject = request.POST['subject']
+            email = request.POST['email']
+            message_send = request.POST['message']
             form.save()
             form = forms.ContactForm()
+            recipients = ['admin@domain.com', ]
+            contact_email(full_name, message_send, recipients, email, subject, 'contact_recive.html')
+
             message= "Thankyou for contacting us!! We will get back to you soon"
             messages.success(request, message)
         else:

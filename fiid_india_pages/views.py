@@ -3,7 +3,7 @@ from . import models
 from . import forms
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
-from . send_email import contact_email
+from . send_email import contact_email, subscriber_email
 
 def home_page_view(request):
     form = forms.SubscribeForm()
@@ -40,8 +40,13 @@ def home_page_view(request):
         form = forms.SubscribeForm(request.POST)
         if form.is_valid():
             full_name = request.POST['full_name']
+            recipient = [request.POST['email']]
             form.save()
             form = forms.SubscribeForm()
+
+            subject = f"Welcome "+full_name
+            subscriber_email(full_name, subject, recipient, None, 'welcome.html')
+
             message= f"Great "+full_name+"!! Your are added to our subscribers list"
             messages.success(request, message)
         else:

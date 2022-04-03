@@ -1,28 +1,7 @@
 $base-color: #A63BA2;
 $base-hover-color:#901E78;
 
-/* CUSTOMIZE GO TO TOP BUTTON
--------------------------------------------------- */
-#myBtn {
-    display: none;
-    font-size: 3rem;
-    position: fixed;
-    padding: 0.55rem 2rem;
-    right: 30px;
-    bottom: 20px;
-    z-index: 99;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 50px;
-    background-color: $base-color;
-    border-color: $base-color;
-    &:hover{
-      background-color: $base-hover-color;
-      border-color: $base-hover-color;
-    }
-  }
-  
-  /* CUSTOMIZE THE NAVBAR
+/* CUSTOMIZE THE NAVBAR
   -------------------------------------------------- */
   .navbar-brand{
     margin-left: 40px;

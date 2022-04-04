@@ -6,6 +6,12 @@ import sys
 import PIL
 from django.core.files.uploadedfile import InMemoryUploadedFile
 
+FILE_TYPE =(
+    ("Report", "Report"),
+    ("Newsletter", "Newsletter"),
+    ("Others", "Others"),
+)
+
 class Carousel(models.Model):
     heading = models.CharField(max_length=300)
     text = models.CharField(max_length=600)
@@ -96,27 +102,15 @@ class Contact (models.Model):
     def __str__(self):
         return str(f"From : "+self.email)
 
-class NewslettersAndReports(models.Model):
+class File(models.Model):
     title = models.CharField(max_length=300)
     date_and_time = models.DateTimeField(auto_now_add=True)
     message = models.TextField()
+    file = models.FileField(upload_to='files/')
+    file_type = models.CharField(max_length=20, choices=FILE_TYPE, default='Newsletter')
 
     def __str__(self):
         return str(self.title)
-
-class Report(models.Model):
-    link = models.ForeignKey(NewslettersAndReports, on_delete=models.CASCADE)
-    report = models.FileField(upload_to='files/reports/')
-
-    def __str__(self):
-        return str(self.link)
-
-class Newsletter(models.Model):
-    link = models.ForeignKey(NewslettersAndReports, on_delete=models.CASCADE)
-    newsletter = models.FileField(upload_to='files/newsletter/')
-
-    def __str__(self):
-        return str(self.link)
 
 class Subscriber(models.Model):
     full_name = models.CharField(max_length=400)
@@ -135,14 +129,3 @@ def Carousel_delete(sender, instance, **kwargs):
 def Image_delete(sender, instance, **kwargs):
     # Pass false so FileField doesn't save the model.
     instance.image.delete(False)
-
-
-@receiver(pre_delete, sender=Report)
-def file_delete(sender, instance, **kwargs):
-    # Pass false so FileField doesn't save the model.
-    instance.report.delete(False)
-
-@receiver(pre_delete, sender=Newsletter)
-def file_delete(sender, instance, **kwargs):
-    # Pass false so FileField doesn't save the model.
-    instance.newsletter.delete(False)

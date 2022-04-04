@@ -2,8 +2,7 @@ from django.contrib import admin
 from .models import (
     Page, Summary, Paragraph,
     Carousel, Image, Address,
-    Contact, Newsletter, Report,
-    NewslettersAndReports, Subscriber
+    Contact, File, Subscriber
     )
 
 class SummaryStackedInline(admin.StackedInline):
@@ -15,12 +14,6 @@ class ParagraphStackedInline(admin.StackedInline):
 class ImageStackedInline(admin.StackedInline):
     model = Image
 
-class NewsletterStackedInline(admin.StackedInline):
-    model = Newsletter
-
-class ReportStackedInline(admin.StackedInline):
-    model = Report
-
 class PageAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields=('name',)
@@ -29,13 +22,12 @@ class PageAdmin(admin.ModelAdmin):
     class Meta:
         model = Page
 
-class NewslettersAndReportsAdmin(admin.ModelAdmin):
+class FileAdmin(admin.ModelAdmin):
     list_display = ('title', 'date_and_time')
     search_fields = ('title',)
-    inlines = [NewsletterStackedInline, ReportStackedInline]
 
     class Meta:
-        model = NewslettersAndReports
+        model = File
 
 class CarouselAdmin(admin.ModelAdmin):
     list_display = ('heading',)
@@ -57,5 +49,5 @@ admin.site.register(Page, PageAdmin)
 admin.site.register(Carousel, CarouselAdmin)
 admin.site.register(Address, AddressAdmin)
 admin.site.register(Contact, ContactAdmin)
-admin.site.register(NewslettersAndReports, NewslettersAndReportsAdmin)
+admin.site.register(File, FileAdmin)
 admin.site.register(Subscriber, SubscriberAdmin)

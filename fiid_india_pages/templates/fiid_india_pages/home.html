@@ -61,7 +61,7 @@
           <div class="col-md-7 order-md-1 section-writings">
             <h2 class="section-heading"><span class="text-pop">{{about.name}}</span> Us</h2>
             <p class="lead">{{about.summary.summary}}</p>
-            <button class="btn btn-primary shadow-none" onclick="RedirectTo('{{aboutPage}}')">Learn more</button>
+            <button class="btn btn-primary shadow-none" onclick="RedirectTo('{{aboutPage}}')">Learn more <i class="fa-solid fa-angle-right ps-2 pt-1"></i></button>
           </div>
           <div class="col-md-5 order-md-2 section-image">
             {% for item in about_images %}
@@ -79,7 +79,7 @@
           <div class="col-md-7 order-md-2 section-writings">
             <h2 class="section-heading">Our <span class="text-pop">{{programmes.name}}</span></h2>
             <p class="lead">{{programmes.summary.summary}}</p>
-            <button class="btn btn-primary shadow-none" onclick="RedirectTo('{{programmesPage}}')">Learn more</button>
+            <button class="btn btn-primary shadow-none" onclick="RedirectTo('{{programmesPage}}')">Learn more<i class="fa-solid fa-angle-right ps-2 pt-1"></i></button>
           </div>
           <div class="col-md-5 order-md-1 section-image">
             {% for item in programmes_images %}
@@ -97,7 +97,7 @@
           <div class="col-md-7 order-md-1 section-writings">
             <h2 class="section-heading">Our <span class="text-pop">{{objectives.name}}</span></h2>
             <p class="lead">{{objectives.summary.summary}}</p>
-            <button class="btn btn-primary shadow-none" onclick="RedirectTo('{{objectivesPage}}')">Learn more</button>
+            <button class="btn btn-primary shadow-none" onclick="RedirectTo('{{objectivesPage}}')">Learn more <i class="fa-solid fa-angle-right ps-2 pt-1"></i></button>
           </div>
           <div class="col-md-5 order-md-2 section-image">
             {% for item in objectives_images %}

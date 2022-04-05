@@ -34,21 +34,6 @@
      object-fit: cover;
 }
 
-/* CUSTOMIZE THE SCROLL BAR
--------------------------------------------------- */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #9e9e9e;
-  border-radius: 2px;
-}
-
 /* CUSTOMIZE THE SECTIONS
 -------------------------------------------------- */
 .section {

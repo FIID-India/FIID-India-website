@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.shortcuts import render
 from . import models
 from . import forms
@@ -113,3 +114,9 @@ def contact_page_view(request):
             
     context["form"] = form
     return render(request, "fiid_india_pages/contact.html", context)
+
+def file_page_view(request):
+    context={}
+    files = models.File.objects.all().order_by('-id')
+    context["files"] = files
+    return render(request, "fiid_india_pages/files.html", context)

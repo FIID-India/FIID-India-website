@@ -1,0 +1,91 @@
+$base-color: #A63BA2;
+$base-hover-color:#901E78;
+
+.goback{
+    margin: 8rem 0 0 0;
+    p{
+      margin-bottom: 0;
+      font-weight: 500;
+      cursor: pointer;
+      width: 85px;
+    }
+}
+
+.section{
+  padding: 1rem 0;
+}
+
+.section-heading {
+  font-weight: 650;
+  line-height: 2rem;
+  letter-spacing: -.05rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+  color: $base-color;
+  line-height: 0;
+  padding: 3rem 0 1rem 0;
+}
+  
+  
+  .btn-primary {
+    color: #fff;
+    font-weight: 400;
+    padding: 1rem 0.75rem;
+    background-color: $base-color;
+    border-color: $base-color;
+    &:hover{
+      background-color: $base-hover-color;
+      border-color: $base-hover-color;
+    }
+  }
+  
+  .card-img, .card-img-top {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+    height: 200px;
+    object-fit: cover;
+    @media only screen and (max-width: 767px) {
+      min-height: 220px;
+      max-height: 300px;
+    }
+  }
+  
+  .type{
+    font-size: 3rem;
+    position: absolute;
+    font-size: 18px;
+    cursor: pointer;
+    top: 5px;
+    left: 5px;
+    .btn{
+      color: #fff;
+      font-weight: 400;
+      background-color: #2dd46d;;
+      border-color: #2dd46d;;
+      &:hover{
+        background-color: #2dd46d;;
+        border-color: #2dd46d;;
+      }
+    }
+  }
+
+  .card {
+    border: 1px solid rgba(7, 7, 7, 0.308);
+}
+
+
+  /* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 768px) {
+  .section-heading {
+    font-size: 42px;
+    line-height: 3rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (min-width: 62em) {
+  .section-heading {
+    margin-top: 1rem;
+  }
+}

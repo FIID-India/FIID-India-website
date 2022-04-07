@@ -85,13 +85,6 @@ class Paragraph(models.Model):
     def __str__(self):
         return str(self.page)
 
-class Address(models.Model):
-    page = models.OneToOneField(Page, on_delete=models.CASCADE)
-    address = models.TextField()
-
-    def __str__(self):
-        return str(self.page)
-
 class Contact (models.Model):
     full_name = models.CharField(max_length=300)
     email = models.EmailField()

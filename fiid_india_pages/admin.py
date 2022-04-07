@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Page, Summary, Paragraph,
-    Carousel, Image, Address,
+    Carousel, Image,
     Contact, File, Subscriber
     )
 
@@ -33,8 +33,6 @@ class CarouselAdmin(admin.ModelAdmin):
     list_display = ('heading',)
     search_fields = ('heading',)
 
-class AddressAdmin(admin.ModelAdmin):
-    list_display = ('page',)
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'date_and_time')
@@ -47,7 +45,6 @@ class SubscriberAdmin(admin.ModelAdmin):
 
 admin.site.register(Page, PageAdmin)
 admin.site.register(Carousel, CarouselAdmin)
-admin.site.register(Address, AddressAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(File, FileAdmin)
 admin.site.register(Subscriber, SubscriberAdmin)

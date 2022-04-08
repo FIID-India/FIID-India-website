@@ -120,3 +120,21 @@ def file_page_view(request):
     files = models.File.objects.all().order_by('-id')
     context["files"] = files
     return render(request, "fiid_india_pages/files.html", context)
+
+def about_gallary(request):
+    context = {"page":"About"}
+    try:
+        about = models.Page.objects.get(name="About")
+        context["images"] = about.image_set.all().order_by('-id')
+    except ObjectDoesNotExist:
+        pass
+    return render(request, "fiid_india_pages/gallary.html", context)
+
+def programmes_gallary(request):
+    context = {"page":"Programmes"}
+    try:
+        about = models.Page.objects.get(name="Programmes")
+        context["images"] = about.image_set.all().order_by('-id')
+    except ObjectDoesNotExist:
+        pass
+    return render(request, "fiid_india_pages/gallary.html", context)

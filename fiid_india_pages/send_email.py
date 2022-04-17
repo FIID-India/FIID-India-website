@@ -15,8 +15,8 @@ def contact_email(name, message, email_to, email_from, email_subject, email_temp
     email.attach_alternative(html_content, 'text/html')
     email.send()
 
-def subscriber_email(full_name, subject, to_email, message, email_template):
-    html_content = render_to_string(email_template, {'full_name':full_name, 'email':to_email, 'message':message})
+def subscriber_welcome_email(full_name, subject, to_email, email_template):
+    html_content = render_to_string(email_template, {'full_name':full_name, 'email':to_email})
     text_content = strip_tags(html_content)
     email = EmailMultiAlternatives(
         subject,
@@ -24,5 +24,23 @@ def subscriber_email(full_name, subject, to_email, message, email_template):
         None,
         to_email
     )
+    email.attach_alternative(html_content, 'text/html')
+    email.send()
+
+
+def subscriber_email(full_name, subject, to_email, message, email_template, file):
+    html_content = render_to_string(email_template, {'full_name':full_name, 'message':message})
+    text_content = strip_tags(html_content)
+    email = EmailMultiAlternatives(
+        subject,
+        text_content,
+        None,
+        to_email
+    )
+    try:
+        email.attach_file(file)     
+    except:
+        pass
+
     email.attach_alternative(html_content, 'text/html')
     email.send()

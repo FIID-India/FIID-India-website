@@ -1,4 +1,7 @@
+import os
+from django.conf import settings
 from django.contrib import admin
+from . send_email import subscriber_email
 from .models import (
     Page, Summary, Paragraph,
     Carousel, Image,
@@ -25,6 +28,21 @@ class PageAdmin(admin.ModelAdmin):
 class FileAdmin(admin.ModelAdmin):
     list_display = ('title', 'date_and_time')
     search_fields = ('title',)
+    actions = ['send_email']
+
+    def send_email(self, request, queryset):
+        subscriber = Subscriber.objects.all()
+        for member in subscriber:
+            for item in queryset:
+                if item.message:
+                    list = [member.full_name, member.email, item.title, os.path.join(settings.MEDIA_ROOT, str(item.file))]
+                    # filename = os.path.join(settings.MEDIA_ROOT, str(item.file))
+                    recipient = [member.email]
+                    subscriber_email(member.full_name, item.title, recipient, item.message, 'notification.html', None)
+                    print(list)
+                else:
+                    pass
+
 
     class Meta:
         model = File

@@ -1,10 +1,10 @@
-from pyexpat import model
+from django.conf import settings
 from django.shortcuts import render
 from . import models
 from . import forms
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
-from . send_email import contact_email, subscriber_email
+from . send_email import contact_email, subscriber_welcome_email
 
 def home_page_view(request):
     form = forms.SubscribeForm()
@@ -46,7 +46,7 @@ def home_page_view(request):
             form = forms.SubscribeForm()
 
             subject = f"Welcome "+full_name
-            subscriber_email(full_name, subject, recipient, None, 'welcome.html')
+            subscriber_welcome_email(full_name, subject, recipient, 'welcome.html')
 
             message= f"Great "+full_name+"!! Your are added to our subscribers list"
             messages.success(request, message)
@@ -102,7 +102,7 @@ def contact_page_view(request):
             message_send = request.POST['message']
             form.save()
             form = forms.ContactForm()
-            recipients = ['admin@domain.com', ]
+            recipients = [settings.EMAIL_HOST_USER, ]
             contact_email(full_name, message_send, recipients, email, subject, 'contact_recive.html')
 
             message= "Thankyou for contacting us!! We will get back to you soon"

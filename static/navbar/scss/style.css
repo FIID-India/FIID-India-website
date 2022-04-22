@@ -26,7 +26,7 @@
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-  color: #A63BA2;
+  color: #a63ba2;
 }
 
 @media screen and (max-width: 991px) {
@@ -38,8 +38,7 @@
     margin: 0;
     text-align: center;
   }
-  .navbar-light .navbar-nav
-.nav-link {
+  .navbar-light .navbar-nav .nav-link {
     color: rgba(0, 0, 0, 0.55);
     padding: 21px 0;
   }

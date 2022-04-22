@@ -10,89 +10,91 @@
 <!doctype html>
 <html lang="en">
     <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-
-    <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
-
-    <link href="{% static 'navbar/images/logo.png' %}" rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-
-    <title>FIID INDIA</title>
-
-    <!-- Custom CSS -->
-    {% if request.path == homePage %}
-    <link rel="stylesheet" href="{% static 'home-page/scss/style.css' %}">
-    {% endif %}
-    {% if request.path == aboutPage or request.path == programmesPage or request.path == objectivesPage %}
-    <link rel="stylesheet" href="{% static 'section-page/scss/style.css' %}">
-    {% endif %}
-    {% if request.path == contactPage %}
-    <link rel="stylesheet" href="{% static 'contact-page/scss/style.css' %}">
-    {% endif %}
-    {% if request.path == filesPage %}
-    <link rel="stylesheet" href="{% static 'files-page/scss/style.css' %}">
-    {% endif %}
-    {% if request.path == aboutGallary or request.path == programmesGallary %}
-    <link rel="stylesheet" href="{% static 'gallary/scss/style.css' %}">
-    {% endif %}
-    <link rel="stylesheet" href="{% static 'navbar/scss/style.css' %}">
-
-    </head>  
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+        <!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
+        <link href="{% static 'navbar/images/logo.png' %}"
+              rel="shortcut icon"
+              type="image/x-icon"
+              href="favicon.ico"/>
+        <title>FIID INDIA</title>
+        <!-- Custom CSS -->
+        {% if request.path == homePage %}
+            <link rel="stylesheet" href="{% static 'home-page/scss/style.css' %}">
+        {% endif %}
+        {% if request.path == aboutPage or request.path == programmesPage or request.path == objectivesPage %}
+            <link rel="stylesheet" href="{% static 'section-page/scss/style.css' %}">
+        {% endif %}
+        {% if request.path == contactPage %}
+            <link rel="stylesheet" href="{% static 'contact-page/scss/style.css' %}">
+        {% endif %}
+        {% if request.path == filesPage %}
+            <link rel="stylesheet" href="{% static 'files-page/scss/style.css' %}">
+        {% endif %}
+        {% if request.path == aboutGallary or request.path == programmesGallary %}
+            <link rel="stylesheet" href="{% static 'gallary/scss/style.css' %}">
+        {% endif %}
+        <link rel="stylesheet" href="{% static 'navbar/scss/style.css' %}">
+    </head>
     <body>
-                
         {% include "navbar.html" %}
-
         <div style="margin-top: 3.9rem;">
             {% if messages %}
                 {% for message in messages %}
-                <div style="margin-bottom: 0 !important;" class="alert alert-dismissible {% if message.tags %}{{ message.tags }}{% endif %}" id="alert" role="alert">
-                    <div class="text-center">
-                        {{message}}
+                    <div style="margin-bottom: 0 !important;"
+                         class="alert alert-dismissible {% if message.tags %}{{ message.tags }}{% endif %}"
+                         id="alert"
+                         role="alert">
+                        <div class="text-center">{{ message }}</div>
+                        <button type="button"
+                                class="btn-close shadow-none"
+                                data-bs-dismiss="alert"
+                                aria-label="Close"></button>
                     </div>
-                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
                 {% endfor %}
             {% endif %}
             {% if request.path == aboutPage or request.path == programmesPage or request.path == objectivesPage or request.path == contactPage or request.path == filesPage or request.path == programmesGallary or request.path == aboutGallary %}
-            <div class="goback">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="ps-1" onclick="history.back()"><i class="fa-solid fa-angle-left pe-2"></i> Go back</p>
+                <div class="goback">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="ps-1" onclick="history.back()">
+                                    <i class="fa-solid fa-angle-left pe-2"></i> Go back
+                            </p>
                         </div>
                         <div class="col-6">
                             {% if request.path == aboutPage or request.path == programmesPage %}
-                            {% if request.path == aboutPage %}
-                            <p class="ms-auto" onclick="RedirectTo('{{aboutGallary}}')">Gallary <i class="fa-solid fa-angle-right ps-2"></i></p>
-                            {% else %}
-                            <p class="ms-auto" onclick="RedirectTo('{{programmesGallary}}')">Gallary <i class="fa-solid fa-angle-right ps-2"></i></p>
-                            {% endif %}
+                                {% if request.path == aboutPage %}
+                                    <p class="ms-auto" onclick="RedirectTo('{{ aboutGallary }}')">
+                                        Gallary <i class="fa-solid fa-angle-right ps-2"></i>
+                                    </p>
+                                {% else %}
+                                    <p class="ms-auto" onclick="RedirectTo('{{ programmesGallary }}')">
+                                        Gallary <i class="fa-solid fa-angle-right ps-2"></i>
+                                    </p>
+                                {% endif %}
                             {% endif %}
                         </div>
                     </div>
-                    <h2 class="section-heading text-center">{% block sectiontitle %}{% endblock %}</h2>
+                    <h2 class="section-heading text-center">
+                        {% block sectiontitle %}{% endblock %}
+                    </h2>
                     <hr>
                 </div>
             </div>
-            {% endif %}
-            {% block content %}{% endblock %}
-        </div>
-
-        {% include "footer.html" %}
-
-        <!-- Bootstrap JS -->
-        <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-
-        <!-- Custom JS -->
-        <script src="{% static 'navbar/js/index.js' %}"></script>
-
-        <!-- Fontawesome JS -->
-        <script src="{% static 'fontawesome/js/all.js' %}"></script>
-        
-    </body>
-</html> 
+        {% endif %}
+        {% block content %}{% endblock %}
+    </div>
+    {% include "footer.html" %}
+    <!-- Bootstrap JS -->
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'navbar/js/index.js' %}"></script>
+    <!-- Fontawesome JS -->
+    <script src="{% static 'fontawesome/js/all.js' %}"></script>
+</body>
+</html>

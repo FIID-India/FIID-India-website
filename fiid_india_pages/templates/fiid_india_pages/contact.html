@@ -1,40 +1,73 @@
 {% extends "base.html" %}
 {% block sectiontitle %}Contact Us{% endblock %}
 {% block content %}
-{% load static %}
-
-<section>
-    <div class="container">
-      <div class="row section">
-        <div class="col-md-7 order-1 order-md-1 section-writings">
-          <form autocomplete="off" class="row" action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="col-md-12 input-wrapper">
-                <input type="text" class="form-control input shadow-none" placeholder="Full Name" name="full_name" maxlength="300" required id="id_full_name">
+    {% load static %}
+    <section>
+        <div class="container">
+            <div class="row section">
+                <div class="col-md-7 order-1 order-md-1 section-writings">
+                    <form autocomplete="off"
+                          class="row"
+                          action=""
+                          method="POST"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="col-md-12 input-wrapper">
+                            <input type="text"
+                                   class="form-control input shadow-none"
+                                   placeholder="Full Name"
+                                   name="full_name"
+                                   maxlength="300"
+                                   required
+                                   id="id_full_name">
+                        </div>
+                        <div class="col-md-12 input-wrapper">
+                            <input type="email"
+                                   class="form-control input shadow-none"
+                                   placeholder="Your Email"
+                                   name="email"
+                                   maxlength="254"
+                                   required
+                                   id="id_email">
+                        </div>
+                        <div class="col-md-12 input-wrapper">
+                            <input type="text"
+                                   class="form-control input shadow-none"
+                                   placeholder="Subject"
+                                   name="subject"
+                                   maxlength="500"
+                                   required
+                                   id="id_subject">
+                        </div>
+                        <div class="col-12 input-wrapper">
+                            <textarea rows="10"
+                                      class="form-control input shadow-none"
+                                      placeholder="Message"
+                                      name="message"
+                                      required
+                                      id="id_message"></textarea>
+                        </div>
+                        <div class="col-12 text-center input-wrapper">
+                            <button type="submit" class="btn btn-primary shadow-none">Send</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-5 order-2 order-md-2 section-address">
+                    <h3 class="pb-2">Address</h3>
+                    <p>
+                        MSFS Provincialate
+                    </p>
+                    <p>
+                        Narengi, Udayan Vihar P. O
+                    </p>
+                    <p>
+                        Guwahati - 781 171, Assam, India
+                    </p>
+                    <p>
+                        Ph: 0361-2647867, Fax: 0361-2648510
+                    </p>
+                </div>
             </div>
-            <div class="col-md-12 input-wrapper">
-                <input type="email" class="form-control input shadow-none" placeholder="Your Email" name="email" maxlength="254" required id="id_email">
-            </div>
-            <div class="col-md-12 input-wrapper">
-                <input type="text" class="form-control input shadow-none" placeholder="Subject" name="subject" maxlength="500" required id="id_subject">
-            </div>
-            <div class="col-12 input-wrapper">
-                <textarea rows="10" class="form-control input shadow-none" placeholder="Message" name="message" required id="id_message"></textarea>
-            </div>
-            <div class="col-12 text-center input-wrapper">
-                <button type="submit" class="btn btn-primary shadow-none">Send</button>
-            </div>
-        </form>
         </div>
-        <div class="col-md-5 order-2 order-md-2 section-address">
-          <h3 class="pb-2">Address</h3>
-          <p>MSFS Provincialate</p>
-          <p>Narengi, Udayan Vihar P. O</p>
-          <p>Guwahati - 781 171, Assam, India</p>
-          <p>Ph: 0361-2647867, Fax: 0361-2648510</p>
-        </div>
-      </div>
-    </div>
-</section>
-
+    </section>
 {% endblock %}

@@ -1,22 +1,18 @@
 {% extends "base.html" %}
-{% block sectiontitle %}{{page}} Gallary{% endblock %}
+{% block sectiontitle %}{{ page }} Gallary{% endblock %}
 {% block content %}
-{% load static %}
-
-<section class="container">
-    <div class="row section">
-
-      {% if images %}
-        {% for item in images %}
-        <div class="col-md-4 col-xxl-3 p-3">
-          <div class="card">
-            <img src="{{item.image.url}}" class="card-img-top" alt="...">
-          </div>
+    {% load static %}
+    <section class="container">
+        <div class="row section">
+            {% if images %}
+                {% for item in images %}
+                    <div class="col-md-4 col-xxl-3 p-3">
+                        <div class="card">
+                            <img src="{{ item.image.url }}" class="card-img-top" alt="...">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
-        {% endfor %}
-      {% endif %}
-
-    </div>
-  </section>
-
+    </section>
 {% endblock %}

@@ -16,10 +16,10 @@
 .section-heading {
   font-weight: 650;
   line-height: 2rem;
-  letter-spacing: -.05rem;
+  letter-spacing: -0.05rem;
   padding-bottom: 0.5rem;
   margin-bottom: 0;
-  color: #A63BA2;
+  color: #a63ba2;
   line-height: 0;
   padding: 3rem 0 1rem 0;
 }
@@ -28,16 +28,17 @@
   color: #fff;
   font-weight: 400;
   padding: 1rem 0.75rem;
-  background-color: #A63BA2;
-  border-color: #A63BA2;
+  background-color: #a63ba2;
+  border-color: #a63ba2;
 }
 
 .btn-primary:hover {
-  background-color: #901E78;
-  border-color: #901E78;
+  background-color: #901e78;
+  border-color: #901e78;
 }
 
-.card-img, .card-img-top {
+.card-img,
+.card-img-top {
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
   height: 200px;
@@ -46,7 +47,8 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .card-img, .card-img-top {
+  .card-img,
+  .card-img-top {
     min-height: 220px;
     max-height: 300px;
   }

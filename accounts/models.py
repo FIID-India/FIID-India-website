@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from . userManager import UserManager
 from django.utils.translation import ugettext_lazy as _
 
+
 class User(AbstractUser):
     username = None
     email = models.EmailField(_('email'), unique=True)

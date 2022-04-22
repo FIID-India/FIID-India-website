@@ -13,16 +13,17 @@ class UserAdmin(CustomUserAdmin):
     list_display = ('email', 'is_staff', 'is_superuser')
     list_filter = ('is_staff', 'is_superuser')
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'first_name', 'last_name', 'date_joined', 'last_login')}),
-        ('Permissions', {'fields':('groups','is_staff', 'is_superuser')}),
+        (None, {'fields': ('email', 'password', 'first_name',
+         'last_name', 'date_joined', 'last_login')}),
+        ('Permissions', {'fields': ('groups', 'is_staff', 'is_superuser')}),
     )
-    readonly_fields=('date_joined', 'last_login', 'is_superuser')
+    readonly_fields = ('date_joined', 'last_login', 'is_superuser')
 
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email','first_name', 'last_name','password1', 'password2')}
-        ),
+            'fields': ('email', 'first_name', 'last_name', 'password1', 'password2')}
+         ),
     )
     search_fields = ('email',)
     ordering = ('email',)

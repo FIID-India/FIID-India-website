@@ -2,6 +2,8 @@ from dataclasses import fields
 from django import forms
 from . import models
 
+
+# Subscriber Form
 class SubscribeForm(forms.ModelForm):
     class Meta:
         model = models.Subscriber
@@ -10,6 +12,8 @@ class SubscribeForm(forms.ModelForm):
             'email',
         ]
 
+
+# Contact Form
 class ContactForm(forms.ModelForm):
     class Meta:
         model = models.Contact

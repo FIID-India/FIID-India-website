@@ -6,24 +6,30 @@ from .models import (
     Page, Summary, Paragraph,
     Carousel, Image,
     Contact, File, Subscriber
-    )
+)
+
 
 class SummaryStackedInline(admin.StackedInline):
     model = Summary
 
+
 class ParagraphStackedInline(admin.StackedInline):
     model = Paragraph
+
 
 class ImageStackedInline(admin.StackedInline):
     model = Image
 
+
 class PageAdmin(admin.ModelAdmin):
     list_display = ('name',)
-    search_fields=('name',)
-    inlines = [SummaryStackedInline, ParagraphStackedInline, ImageStackedInline]
+    search_fields = ('name',)
+    inlines = [SummaryStackedInline,
+               ParagraphStackedInline, ImageStackedInline]
 
     class Meta:
         model = Page
+
 
 class FileAdmin(admin.ModelAdmin):
     list_display = ('title', 'date_and_time')
@@ -35,17 +41,16 @@ class FileAdmin(admin.ModelAdmin):
         for member in subscriber:
             for item in queryset:
                 if item.message:
-                    list = [member.full_name, member.email, item.title, os.path.join(settings.MEDIA_ROOT, str(item.file))]
-                    # filename = os.path.join(settings.MEDIA_ROOT, str(item.file))
                     recipient = [member.email]
-                    subscriber_email(member.full_name, item.title, recipient, item.message, 'notification.html', None)
+                    subscriber_email(
+                        member.full_name, item.title, recipient, item.message, 'notification.html')
                     print(list)
                 else:
                     pass
 
-
     class Meta:
         model = File
+
 
 class CarouselAdmin(admin.ModelAdmin):
     list_display = ('heading',)
@@ -55,6 +60,7 @@ class CarouselAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'date_and_time')
     search_fields = ('full_name', 'email')
+
 
 class SubscriberAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email')

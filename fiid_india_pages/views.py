@@ -5,36 +5,23 @@ from . import forms
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from . send_email import contact_email
+from django.views import generic
 
 
 # Home Page View
-def home_page_view(request):
-    context = {}
-    try:
+
+class HomePageView(generic.TemplateView):
+    template_name = 'fiid_india_pages/home.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = {}
         context["about_images"] = models.Image.objects.filter(page="About").order_by('-id')[:1]
-    except ObjectDoesNotExist:
-        pass
-
-    try:
         context["programmes_images"] = models.Image.objects.filter(page="Programmes").order_by('-id')[:1]
-    except ObjectDoesNotExist:
-        pass
-
-    try:
-        context["objectives_images"] = models.Image.objects.filter(page="Objectives").order_by(
-            '-id')[:1]
-    except:
-        pass
-
-    try:
-        carousel = models.Carousel.objects.all().order_by('-id')[:3]
-        context["carousel"] = carousel
-
-    except:
-        pass
-
-    return render(request, "fiid_india_pages/home.html", context)
-
+        context["objectives_images"] = models.Image.objects.filter(page="Objectives").order_by('-id')[:1]
+        context["carousel"] = models.Carousel.objects.all().order_by('-id')[:3]
+        return context
+    
 
 # About Page View
 def about_page_view(request):

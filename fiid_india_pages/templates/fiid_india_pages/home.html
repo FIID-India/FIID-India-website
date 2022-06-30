@@ -77,10 +77,10 @@
             <div class="row section">
                 <div class="col-md-7 order-md-1 section-writings">
                     <h2 class="section-heading">
-                        <span class="text-pop">{{ about.name }}</span> Us
+                        <span class="text-pop">About</span> Us
                 </h2>
                 <p class="lead">
-                    {{ about.summary.summary }}
+                    In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.
                 </p>
                 <button class="btn btn-primary shadow-none"
                         onclick="RedirectTo('{{ aboutPage }}')">
@@ -99,10 +99,10 @@
         <div class="row section">
             <div class="col-md-7 order-md-2 section-writings">
                 <h2 class="section-heading">
-                    Our <span class="text-pop">{{ programmes.name }}</span>
+                    Our <span class="text-pop">Programmes</span>
                 </h2>
                 <p class="lead">
-                    {{ programmes.summary.summary }}
+                    In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.
                 </p>
                 <button class="btn btn-primary shadow-none"
                         onclick="RedirectTo('{{ programmesPage }}')">
@@ -121,10 +121,10 @@
         <div class="row section">
             <div class="col-md-7 order-md-1 section-writings">
                 <h2 class="section-heading">
-                    Our <span class="text-pop">{{ objectives.name }}</span>
+                    Our <span class="text-pop">Objectives</span>
                 </h2>
                 <p class="lead">
-                    {{ objectives.summary.summary }}
+                    In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.
                 </p>
                 <button class="btn btn-primary shadow-none"
                         onclick="RedirectTo('{{ objectivesPage }}')">
@@ -137,52 +137,5 @@
         </div>
     </div>
 </section>
-<!-- Newsletter Section -->
-<section id="Newsletter">
-    <div class="container">
-        <div class="row section">
-            <div class="col-md-7 order-md-2 section-writings">
-                <h2 class="section-heading">
-                    Reports & <span class="text-pop">Newsletters</span>
-                </h2>
-                <p class="lead">
-                    To get newsletters & reports through email subscribe using the form below. To view and download
-                    the old reports and newsletters <a href="{{ filesPage }}">click here</a>
-                </p>
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="report-form">
-                        <div class="form-floating">
-                            <input type="text"
-                                   class="form-control shadow-none"
-                                   name="full_name"
-                                   maxlength="400"
-                                   required
-                                   id="id_full_name"
-                                   placeholder="Bob John">
-                            <label for="floatingInput">Full Name</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="email"
-                                   class="form-control shadow-none"
-                                   name="email"
-                                   id="id_email"
-                                   required
-                                   maxlength="254"
-                                   placeholder="example@domain.com">
-                            <label for="floatingPassword">Email</label>
-                        </div>
-                        <button style="width: 100%;"
-                                class="btn btn-lg btn-primary shadow-none"
-                                type="submit">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-5 order-md-1 section-image">
-                <img src="https://images.pexels.com/photos/3975589/pexels-photo-3975589.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                     alt="">
-            </div>
-        </div>
-    </div>
-</section>
+
 {% endblock %}

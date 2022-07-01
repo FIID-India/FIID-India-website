@@ -9,7 +9,6 @@ from django.views import generic
 
 
 # Home Page View
-
 class HomePageView(generic.TemplateView):
     template_name = 'fiid_india_pages/home.html'
     
@@ -24,13 +23,14 @@ class HomePageView(generic.TemplateView):
     
 
 # About Page View
-def about_page_view(request):
-    context = {}
-    try:
+class AboutPageView(generic.TemplateView):
+    template_name='fiid_india_pages/about.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = {}
         context["about_images"] = models.Image.objects.filter(page="About").order_by('-id')[:3]
-    except ObjectDoesNotExist:
-        pass
-    return render(request, "fiid_india_pages/about.html", context)
+        return context
 
 
 # Programmes Page View

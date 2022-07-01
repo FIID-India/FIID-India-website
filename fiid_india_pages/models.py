@@ -14,6 +14,12 @@ FILE_TYPE = (
     ("Others", "Others"),
 )
 
+PAGE_LIST = (
+    ("About", "About"),
+    ("Objectives", "Objectives"),
+    ("Programmes", "Programmes"),
+)
+
 
 # Carousel Model
 class Carousel(models.Model):
@@ -45,17 +51,10 @@ class Carousel(models.Model):
         return(self.heading)
 
 
-# Page Model
-class Page(models.Model):
-    name = models.CharField(max_length=300)
-
-    def __str__(self):
-        return str(self.name)
-
 
 # Image model linked to pages
 class Image(models.Model):
-    page = models.ForeignKey(Page, on_delete=models.CASCADE)
+    page = models.CharField(choices=PAGE_LIST, max_length=200)
     image = models.ImageField(upload_to='images/pages/')
 
     def save(self):
@@ -76,24 +75,6 @@ class Image(models.Model):
                                           sys.getsizeof(output), None)
 
         super(Image, self).save()
-
-    def __str__(self):
-        return str(self.page)
-
-
-# Summary Model linked to page model
-class Summary(models.Model):
-    page = models.OneToOneField(Page, on_delete=models.CASCADE)
-    summary = models.TextField()
-
-    def __str__(self):
-        return str(self.page)
-
-
-# Paragraph Model linked to page model
-class Paragraph(models.Model):
-    page = models.OneToOneField(Page, on_delete=models.CASCADE)
-    paragraph = models.TextField()
 
     def __str__(self):
         return str(self.page)
@@ -123,14 +104,6 @@ class File(models.Model):
     def __str__(self):
         return str(self.title)
 
-
-# Subscriber Model to Save Subscriber Info
-class Subscriber(models.Model):
-    full_name = models.CharField(max_length=400)
-    email = models.EmailField(unique=True)
-
-    def __str__(self):
-        return str(self.full_name)
 
 
 # To delete images when the instace is deleted in Carousel model

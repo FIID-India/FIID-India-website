@@ -4,8 +4,8 @@ from . import views
 app_name = 'fiid-india-pages'
 
 urlpatterns = [
-    path('', views.home_page_view, name="home-page"),
-    path('about/', views.about_page_view, name="about-page"),
+    path('', views.HomePageView.as_view(), name="home-page"),
+    path('about/', views.AboutPageView.as_view(), name="about-page"),
     path('about/gallary/', views.about_gallary, name="about-gallary"),
     path('programmes/', views.programmes_page_view, name="programmes-page"),
     path('programmes/gallary/', views.programmes_gallary,

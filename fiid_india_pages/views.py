@@ -45,13 +45,14 @@ class ProgrammesPageView(generic.TemplateView):
 
 
 # Objectives Page View
-def objectives_page_view(request):
-    context = {}
-    try:
+class ObjectivesPageView(generic.TemplateView):
+    template_name = 'fiid_india_pages/objectives.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = {}
         context["objectives_images"] = models.Image.objects.filter(page="Objectives").order_by('-id')[:3]
-    except ObjectDoesNotExist:
-        pass
-    return render(request, "fiid_india_pages/objectives.html", context)
+        return context
 
 
 # Contact Page View

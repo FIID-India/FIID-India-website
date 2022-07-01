@@ -24,7 +24,7 @@ class HomePageView(generic.TemplateView):
 
 # About Page View
 class AboutPageView(generic.TemplateView):
-    template_name='fiid_india_pages/about.html'
+    template_name = 'fiid_india_pages/about.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -34,13 +34,14 @@ class AboutPageView(generic.TemplateView):
 
 
 # Programmes Page View
-def programmes_page_view(request):
-    context = {}
-    try:
+class ProgrammesPageView(generic.TemplateView):
+    template_name = "fiid_india_pages/programmes.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = {}
         context["programmes_images"] = models.Image.objects.filter(page="Programmes").order_by('-id')[:3]
-    except ObjectDoesNotExist:
-        pass
-    return render(request, "fiid_india_pages/programmes.html", context)
+        return context
 
 
 # Objectives Page View

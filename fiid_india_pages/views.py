@@ -92,21 +92,10 @@ def file_page_view(request):
     return render(request, "fiid_india_pages/files.html", context)
 
 
-# About Gallary
-def about_gallary(request):
-    context = {"page": "About"}
-    try:
-        context["images"] = models.Image.objects.filter(page="About").order_by('-id')
-    except ObjectDoesNotExist:
-        pass
-    return render(request, "fiid_india_pages/gallary.html", context)
+# Galary View
+class GallaryPageView(generic.ListView):
+    model = models.Image
+    context_object_name = 'images'
+    template_name = 'fiid_india_pages/gallary.html'
+    ordering = ['-id']
 
-
-# Programmes Gallary
-def programmes_gallary(request):
-    context = {"page": "Programmes"}
-    try:
-        context["images"] = models.Image.objects.filter(page="Programmes").order_by('-id')
-    except ObjectDoesNotExist:
-        pass
-    return render(request, "fiid_india_pages/gallary.html", context)

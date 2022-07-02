@@ -10,5 +10,5 @@ urlpatterns = [
     path('gallary/', views.GallaryPageView.as_view(), name="gallary-page"),
     path('objectives/', views.ObjectivesPageView.as_view(), name="objectives-page"),
     path('contact/', views.contact_page_view, name="contact-page"),
-    path('files/', views.file_page_view, name="files-page"),
+    path('files/', views.FilesPageView.as_view(), name="files-page"),
 ]

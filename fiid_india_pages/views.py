@@ -1,10 +1,8 @@
-from django.conf import settings
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from . import models
 from . import forms
 from django.contrib import messages
-from django.core.exceptions import ObjectDoesNotExist
 from .email import ContactEmail
 from django.views import generic
 

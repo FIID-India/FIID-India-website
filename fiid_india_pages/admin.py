@@ -1,5 +1,3 @@
-import os
-from django.conf import settings
 from django.contrib import admin
 from .models import (
     Carousel, Image,
@@ -9,7 +7,6 @@ from .models import (
 
 class ImageStackedInline(admin.StackedInline):
     model = Image
-
 
 
 class FileAdmin(admin.ModelAdmin):
@@ -25,6 +22,7 @@ class CarouselAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'date_and_time')
     search_fields = ('full_name', 'email')
+
 
 admin.site.register(Carousel, CarouselAdmin)
 admin.site.register(Contact, ContactAdmin)

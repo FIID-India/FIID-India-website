@@ -1,10 +1,9 @@
-from django.conf import settings
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from . import models
 from . import forms
 from django.contrib import messages
-from django.core.exceptions import ObjectDoesNotExist
-from . send_email import contact_email
+from .email import ContactEmail
 from django.views import generic
 
 
@@ -62,32 +61,29 @@ class ObjectivesPageView(generic.TemplateView):
 
 
 # Contact Page View
-def contact_page_view(request):
-    form = forms.ContactForm()
-    context = {}
-    if request.method == "POST":
-        form = forms.ContactForm(request.POST)
-        if form.is_valid():
+class ContactPageView(generic.CreateView):
+    model = models.Contact
+    template_name = 'fiid_india_pages/contact.html'
+    form_class = forms.ContactForm
 
-            full_name = request.POST['full_name']
-            subject = request.POST['subject']
-            email = request.POST['email']
-            message_send = request.POST['message']
-            form.save()
-            form = forms.ContactForm()
-            recipients = [settings.EMAIL_HOST_USER, ]
-            contact_email(full_name, message_send, recipients,
-                          email, subject, 'contact_recive.html')
+    def form_valid(self, form):
+        full_name = form.cleaned_data['full_name']
+        sender_email_id = form.cleaned_data['email']
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
 
-            message = "Thankyou for contacting us!! We will get back to you soon"
-            messages.success(request, message)
-        else:
-            for field, errors in form.errors.items():
-                error = '{}'.format(''.join(errors))
-                messages.error(request, error)
+        # Send email
+        ContactEmail(full_name, sender_email_id,
+                     subject, message).send_to_admin()
 
-    context["form"] = form
-    return render(request, "fiid_india_pages/contact.html", context)
+        # Display success message
+        message = "Thankyou for contacting us!! We will get back to you soon"
+        messages.success(self.request, message)
+
+        return super(ContactPageView, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('fiid-india-pages:contact-page')
 
 
 # File Page View

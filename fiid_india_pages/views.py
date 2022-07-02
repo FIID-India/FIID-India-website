@@ -11,47 +11,53 @@ from django.views import generic
 # Home Page View
 class HomePageView(generic.TemplateView):
     template_name = 'fiid_india_pages/home.html'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context = {}
-        context["about_images"] = models.Image.objects.filter(page="About").order_by('-id')[:1]
-        context["programmes_images"] = models.Image.objects.filter(page="Programmes").order_by('-id')[:1]
-        context["objectives_images"] = models.Image.objects.filter(page="Objectives").order_by('-id')[:1]
+        context["about_images"] = models.Image.objects.filter(
+            page="About").order_by('-id')[:1]
+        context["programmes_images"] = models.Image.objects.filter(
+            page="Programmes").order_by('-id')[:1]
+        context["objectives_images"] = models.Image.objects.filter(
+            page="Objectives").order_by('-id')[:1]
         context["carousel"] = models.Carousel.objects.all().order_by('-id')[:3]
         return context
-    
+
 
 # About Page View
 class AboutPageView(generic.TemplateView):
     template_name = 'fiid_india_pages/about.html'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context = {}
-        context["about_images"] = models.Image.objects.filter(page="About").order_by('-id')[:3]
+        context["about_images"] = models.Image.objects.filter(
+            page="About").order_by('-id')[:3]
         return context
 
 
 # Programmes Page View
 class ProgrammesPageView(generic.TemplateView):
     template_name = "fiid_india_pages/programmes.html"
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context = {}
-        context["programmes_images"] = models.Image.objects.filter(page="Programmes").order_by('-id')[:3]
+        context["programmes_images"] = models.Image.objects.filter(
+            page="Programmes").order_by('-id')[:3]
         return context
 
 
 # Objectives Page View
 class ObjectivesPageView(generic.TemplateView):
     template_name = 'fiid_india_pages/objectives.html'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context = {}
-        context["objectives_images"] = models.Image.objects.filter(page="Objectives").order_by('-id')[:3]
+        context["objectives_images"] = models.Image.objects.filter(
+            page="Objectives").order_by('-id')[:3]
         return context
 
 
@@ -85,11 +91,11 @@ def contact_page_view(request):
 
 
 # File Page View
-def file_page_view(request):
-    context = {}
-    files = models.File.objects.all().order_by('-id')
-    context["files"] = files
-    return render(request, "fiid_india_pages/files.html", context)
+class FilesPageView(generic.ListView):
+    model = models.File
+    context_object_name = 'files'
+    template_name = 'fiid_india_pages/files.html'
+    ordering = ['-id']
 
 
 # Galary View
@@ -98,4 +104,3 @@ class GallaryPageView(generic.ListView):
     context_object_name = 'images'
     template_name = 'fiid_india_pages/gallary.html'
     ordering = ['-id']
-

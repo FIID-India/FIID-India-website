@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 {% block sectiontitle %}{{ page }} Gallary{% endblock %}
+{% load static %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'gallary/scss/style.css' %}">
+{% endblock %}
 {% block content %}
     {% load static %}
     <section class="container">

@@ -2,7 +2,7 @@
 {% block sectiontitle %}Reports and Newsletters{% endblock %}
 {% load static %}
 {% block stylesheet %}
-    <link rel="stylesheet" href="{% static 'files-page/scss/style.css' %}">
+    <link rel="stylesheet" href="{% static 'fiid_india_pages/files-page/scss/style.css' %}">
 {% endblock %}
 {% block content %}
 {% include "section_header.html" %}
@@ -16,15 +16,15 @@
                                 <button class="btn btn-secondary shadow-none" onclick="RedirectTo('#')">{{ item.file_type }}</button>
                             </div>
                             {% if item.file_type == 'Report' %}
-                                <img src="{% static 'files-page/images/report.jpg' %}"
+                                <img src="{% static 'fiid_india_pages/files-page/images/report.jpg' %}"
                                      class="card-img-top"
                                      alt="...">
                             {% elif item.file_type == 'Newsletter' %}
-                                <img src="{% static 'files-page/images/newsletter.jpg' %}"
+                                <img src="{% static 'fiid_india_pages/files-page/images/newsletter.jpg' %}"
                                      class="card-img-top"
                                      alt="...">
                             {% else %}
-                                <img src="{% static 'files-page/images/other.jpg' %}"
+                                <img src="{% static 'fiid_india_pages/files-page/images/other.jpg' %}"
                                      class="card-img-top"
                                      alt="...">
                             {% endif %}

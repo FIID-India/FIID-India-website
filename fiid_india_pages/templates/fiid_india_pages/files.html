@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block sectiontitle %}Reports and Newsletters{% endblock %}
+{% load static %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'files-page/scss/style.css' %}">
+{% endblock %}
 {% block content %}
-    {% load static %}
     <section class="container">
         <div class="row section">
             {% if files %}

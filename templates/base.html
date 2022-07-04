@@ -24,22 +24,7 @@
               href="favicon.ico"/>
         <title>FIID INDIA</title>
         <!-- Custom CSS -->
-        {% if request.path == homePage %}
-            <link rel="stylesheet" href="{% static 'home-page/scss/style.css' %}">
-        {% endif %}
-        {% if request.path == aboutPage or request.path == programmesPage or request.path == objectivesPage %}
-            <link rel="stylesheet" href="{% static 'section-page/scss/style.css' %}">
-        {% endif %}
-        {% if request.path == contactPage %}
-            <link rel="stylesheet" href="{% static 'contact-page/scss/style.css' %}">
-        {% endif %}
-        {% if request.path == filesPage %}
-            <link rel="stylesheet" href="{% static 'files-page/scss/style.css' %}">
-        {% endif %}
-        {% if request.path == aboutGallary or request.path == programmesGallary or request.path == Gallary %}
-            <link rel="stylesheet" href="{% static 'gallary/scss/style.css' %}">
-        {% endif %}
-        <link rel="stylesheet" href="{% static 'navbar/scss/style.css' %}">
+        {% block stylesheet %}{% endblock %}
     </head>
     <body>
         {% include "navbar.html" %}

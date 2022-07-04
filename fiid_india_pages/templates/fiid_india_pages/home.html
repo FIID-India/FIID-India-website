@@ -1,6 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'home-page/scss/style.css' %}">
+{% endblock %}
 {% block content %}
-    {% load static %}
     <!-- Carousel -->
     <section>
         <div id="myCarousel"
@@ -137,5 +140,4 @@
         </div>
     </div>
 </section>
-
 {% endblock %}

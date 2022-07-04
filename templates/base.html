@@ -43,30 +43,6 @@
                     </div>
                 {% endfor %}
             {% endif %}
-            {% if request.path == aboutPage or request.path == programmesPage or request.path == objectivesPage or request.path == contactPage or request.path == filesPage or request.path == programmesGallary or request.path == aboutGallary %}
-                <div class="goback">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6">
-                                <p class="ps-1" onclick="history.back()">
-                                    <i class="fa-solid fa-angle-left pe-2"></i> Go back
-                            </p>
-                        </div>
-                        <div class="col-6">
-                            {% if request.path == aboutPage or request.path == programmesPage %}
-                                <p class="ms-auto" onclick="RedirectTo('{{ Gallary }}')">
-                                    Gallary <i class="fa-solid fa-angle-right ps-2"></i>
-                                </p>
-                            {% endif %}
-                        </div>
-                    </div>
-                    <h2 class="section-heading text-center">
-                        {% block sectiontitle %}{% endblock %}
-                    </h2>
-                    <hr>
-                </div>
-            </div>
-        {% endif %}
         {% block content %}{% endblock %}
     </div>
     {% include "footer.html" %}

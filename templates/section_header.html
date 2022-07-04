@@ -1,0 +1,26 @@
+{% load static %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'section-header/scss/style.css' %}">
+{% endblock %}
+<div class="goback">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <p class="ps-1" onclick="history.back()">
+                    <i class="fa-solid fa-angle-left pe-2"></i> Go back
+            </p>
+        </div>
+        <div class="col-6">
+            {% if request.path == aboutPage or request.path == programmesPage %}
+                <p class="ms-auto" onclick="RedirectTo('{{ Gallary }}')">
+                    Gallary <i class="fa-solid fa-angle-right ps-2"></i>
+                </p>
+            {% endif %}
+        </div>
+    </div>
+    <h2 class="section-heading text-center">
+        {% block sectiontitle %}{% endblock %}
+    </h2>
+    <hr>
+</div>
+</div>

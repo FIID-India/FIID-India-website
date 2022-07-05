@@ -1,14 +1,3 @@
-.goback {
-  margin: 8rem 0 0 0;
-}
-
-.goback p {
-  margin-bottom: 0;
-  font-weight: 500;
-  cursor: pointer;
-  width: 85px;
-}
-
 .section {
   padding: 1rem 0;
 }
@@ -28,36 +17,11 @@
 .card-img-top {
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
-  height: 320px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-@media only screen and (max-width: 767px) {
-  .card-img,
-  .card-img-top {
-    min-height: 320px;
-    max-height: 320px;
-  }
-}
-
 .card {
   border: 1px solid rgba(7, 7, 7, 0.308);
-}
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-@media (min-width: 768px) {
-  .section-heading {
-    font-size: 42px;
-    line-height: 3rem;
-    padding-bottom: 1rem;
-  }
-}
-
-@media (min-width: 62em) {
-  .section-heading {
-    margin-top: 1rem;
-  }
 }
 /*# sourceMappingURL=style.css.map */

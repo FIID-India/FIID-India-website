@@ -1,16 +1,6 @@
 $base-color: #a63ba2;
 $base-hover-color: #901e78;
 
-.goback {
-  margin: 8rem 0 0 0;
-  p {
-    margin-bottom: 0;
-    font-weight: 500;
-    cursor: pointer;
-    width: 85px;
-  }
-}
-
 .section {
   padding: 1rem 0;
 }
@@ -30,30 +20,9 @@ $base-hover-color: #901e78;
 .card-img-top {
   border-top-left-radius: calc(0.25rem - 1px);
   border-top-right-radius: calc(0.25rem - 1px);
-  height: 320px;
   object-fit: cover;
-  @media only screen and (max-width: 767px) {
-    min-height: 320px;
-    max-height: 320px;
-  }
 }
 
 .card {
   border: 1px solid rgba(7, 7, 7, 0.308);
-}
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
-@media (min-width: 768px) {
-  .section-heading {
-    font-size: 42px;
-    line-height: 3rem;
-    padding-bottom: 1rem;
-  }
-}
-
-@media (min-width: 62em) {
-  .section-heading {
-    margin-top: 1rem;
-  }
 }

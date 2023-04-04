@@ -2,7 +2,7 @@ from . base import *
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-DEBUG = os.environ["DEBUG"]
+DEBUG = False
 
 ALLOWED_HOSTS = os.environ["ALLOWED_HOSTS"]
 

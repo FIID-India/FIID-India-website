@@ -10,3 +10,7 @@ class AboutPageView(generic.TemplateView):
     
 class ProgramsPageView(generic.TemplateView):
     template_name = 'fiid_india/programmes.html'
+
+
+class ObjectivesPageView(generic.TemplateView):
+    template_name = 'fiid_india/objectives.html'

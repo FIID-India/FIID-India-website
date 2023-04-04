@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'fiid_india/objectives_page/style.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<section id="objectives">
+    <div class="container">
+        <a href="{% url 'fiid-india:home' %}">
+            <button class="primary-btn go-back"><i class="fa-solid fa-arrow-left me-2"></i>Go back</button>
+        </a>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+
+                <h3>What we aim to achieve</h3>
+                <h4 class="quote">"Empowering Rural Communities for Sustainable Development: FIID India's
+                    Objectives"</h4>
+
+            </div>
+            <div class="col-12 col-lg-6">
+
+                <div class="ratio ratio-16x9">
+                    <img class="w-100"
+                        src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80"
+                        alt="">
+                </div>
+
+                <ul>
+                    <li>
+                        The mission of this organization is to uplift the living conditions of the community through
+                        various programs, seminars, workshops, and activities that promote social, charitable,
+                        humanitarian, philanthropic, and religious services. The organization aims to promote health
+                        and family welfare, including the prevention of drug addiction, by providing healthcare
+                        units, dispensaries, clinics, health-camps, de-addiction centers, and other allied
+                        activities to promote community healthcare and nutrition. They also seek to promote economic
+                        and social empowerment for women through microfinance and human resource development, among
+                        other programs.
+                    </li>
+                    <div class="container d-none d-md-block">
+                        <hr>
+                    </div>
+                    <li>
+                        This organization aims to improve the living conditions of the poor and indigent by making
+                        people aware of the needs of the nation and developing a spirit of voluntary services and
+                        voluntarism. They also explore and develop local talents to generate self-reliance and
+                        cooperation among the people to attain economic development and to improve the living
+                        standards of the people.
+                    </li>
+                    <div class="container d-none d-md-block">
+                        <hr>
+                    </div>
+                    <li>
+                        The organization intends to promote all-round development in society by establishing social
+                        activities, economic development programs in agriculture, environment, medical and
+                        educational spheres. They also seek to develop areas of mutual cooperation and understanding
+                        among different voluntary agencies, organizations, institutions, government agencies,
+                        groups, and individuals that are contributing to the welfare and development of the people.
+                    </li>
+                    <div class="container d-none d-md-block">
+                        <hr>
+                    </div>
+                    <li>
+                        Additionally, the organization seeks to promote general welfare and physical, mental,
+                        material, spiritual, moral, and cultural advancement of people irrespective of their
+                        faith/religion. They aim to educate, train, and assist financially or otherwise, in
+                        education and training of students, teachers, staff, personnel of the Society, social
+                        workers, and others in arts, science, culture, religion, philosophy, theology, educational
+                        skills, social action, etc.
+                    </li>
+                    <div class="container d-none d-md-block">
+                        <hr>
+                    </div>
+                    <li>
+                        This organization promotes the construction and running of schools, colleges, and
+                        educational institutions based on the ideals laid by great educationists of the country for
+                        the benefit of the public. They provide grants, scholarships, fellowships, and other forms
+                        of financial assistance to needy and deserving students for pursuing education, vocational
+                        training, and skill development.
+                    </li>
+                    <div class="container d-none d-md-block">
+                        <hr>
+                    </div>
+                    <li>
+                        Finally, the organization aims to administer, organize, manage, encourage, associate,
+                        supervise, promote, and carry out programs for the establishment and/or maintenance of
+                        clinics, nursing homes, mobile clinics, vaccination and immunization centers, dispensaries,
+                        hospitals, rehabilitation centers, health clubs, and counseling centers, among others, for
+                        the benefit of all irrespective of caste, creed, gender, or sect.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+{% endblock content %}

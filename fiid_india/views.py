@@ -2,3 +2,7 @@ from django.views import generic
 
 class HomePageView(generic.TemplateView):
     template_name = 'fiid_india/home.html'
+
+
+class AboutPageView(generic.TemplateView):
+    template_name = 'fiid_india/about.html'

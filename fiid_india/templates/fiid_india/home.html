@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'fiid_india/home_page/style.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<section id="hero">
+    <div class="container">
+        <div class="title-group">
+            <h4>Together, <span class="special-mention">we can make a difference</span></h4>
+            <a href="#">
+                <button class="primary-btn d-flex align-items-center"><span class="text">View Our
+                        Programmes</span><i class="fa-solid fa-arrow-right ms-2"></i></button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h3>Who we are</h3>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="ratio ratio-16x9">
+                    <img class="w-100"
+                        src="https://images.unsplash.com/photo-1609234656388-0ff363383899?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80"
+                        alt="">
+                </div>
+
+                <p>
+                    The organization aims to uplift the living conditions of the community through various social
+                    activities such as organizing seminars, workshops, conferences, and other awareness programs.
+                    Additionally, it focuses on promoting health and family welfare by running health-care units,
+                    clinics, and de-addiction centers for the needy, sick, poor, old, and handicapped individuals.
+                </p>
+                <a href="#">
+                    <button class="primary-btn d-flex align-items-center">
+                        <span class="text">Know more</span>
+                        <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container d-none d-md-block">
+    <hr>
+</div>
+
+<section id="objectives">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h3>What we aim to achieve</h3>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="ratio ratio-16x9">
+                    <img class="w-100"
+                        src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80"
+                        alt="">
+                </div>
+                <p>
+                    Our mission it promote social welfare and development, improving health and education,
+                    providing financial assistance to the needy, and establishing various institutions for the
+                    betterment of society. The organization aims to promote social, charitable, humanitarian,
+                    religious, and moral ideals, and bring harmony, equality, peace, and tranquility among people
+                    from all walks of life.
+                </p>
+                <a href="#">
+                    <button class="primary-btn d-flex align-items-center">
+                        <span class="text">Know more</span>
+                        <i class="fa-solid fa-arrow-right ms-2"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+{% endblock content %}

@@ -1,0 +1,32 @@
+@import "../base";
+
+#contact {
+    padding: 100px 0 50px 0;
+    .container {
+        .text-group {
+            text-align: center;
+            margin-bottom: 2rem;
+            h3 {
+                margin-bottom: 1rem;
+            }
+        }
+        .container-fluid {
+            max-width: 900px !important;
+        }
+        form {
+            font-size: 14px;
+            input {
+                padding: 10px 20px;
+            }
+            button {
+                width: 100%;
+            }
+        }
+        h5 {
+            font-weight: 700;
+        }
+        p {
+            color: #525252;
+        }
+    }
+}

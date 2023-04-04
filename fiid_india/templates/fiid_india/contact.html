@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'fiid_india/contact_page/style.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<section id="contact">
+    <div class="container">
+        <a href="{% url 'fiid-india:home' %}">
+            <button class="primary-btn go-back"><i class="fa-solid fa-arrow-left me-2"></i>Go back</button>
+        </a>
+        <div class="container-fluid">
+            <div class="text-group">
+                <h3>Contact</h3>
+                <span class="quote">"Have a question or feedback? We're all ears. Get in touch with us
+                    today."</span>
+            </div>
+            <div class="row row-cols-1 row-cols-lg-2 g-4">
+                <div class="col">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Subject</label>
+                            <input type="text" class="form-control" name="subject">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                            <textarea class="form-control" name="message" rows="6"></textarea>
+                        </div>
+                        <button type="submit" class="primary-btn">Send message</button>
+                    </form>
+                </div>
+
+                <div class="container d-block d-lg-none pt-3">
+                    <hr>
+                </div>
+
+                <div class="col">
+                    <div class="wrap d-lg-flex justify-content-center">
+                        <div class="address">
+                            <h5 class="mb-3"><u>Contact Address</u></h5>
+                            <p>Address Line 1</p>
+                            <p>Address Line 2</p>
+                            <p>District, State</p>
+                            <p>Country</p>
+                            <p>Pincode</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+{% endblock content %}

@@ -3,7 +3,9 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="{% static 'assets/logo.svg' %}" alt=""></a>
+            <a class="navbar-brand" href="{% url 'fiid-india:home' %}">
+                <img src="{% static 'assets/logo.svg' %}" alt="">
+            </a>
             <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -34,7 +36,7 @@
                         </li>
                         -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="{% url 'fiid-india:contact' %}">Contact</a>
                         </li>
                     </ul>
                 </div>

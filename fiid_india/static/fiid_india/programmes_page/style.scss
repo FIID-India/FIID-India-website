@@ -1,0 +1,67 @@
+@import '../base';
+
+#programmes-overview {
+    @media only screen and (min-width: 992px) {
+        padding: 100px 0 50px 0;
+    }
+    padding: 100px 0 25px 0;
+
+    .container-fluid {
+        max-width: 800px;
+    }
+    img {
+        border-radius: 30px;
+        object-fit: cover;
+    }
+    .ratio {
+        margin-bottom: 2rem;
+    }
+    .heading {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    p {
+        font-size: 16px;
+        color: #525252;
+        margin-left: 5px;
+        margin-bottom: 1rem;
+        text-align: justify;
+        max-width: 760px;
+    }
+}
+
+#core-programmes {
+    @media only screen and (min-width: 992px) {
+        padding: 50px 0;
+    }
+    padding: 25px 0;
+    .main-heading {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    .card {
+        border: none;
+        margin-bottom: 2rem;
+        height: 100%;
+        img {
+            border-radius: 30px;
+        }
+        .card-title {
+            font-size: 25px;
+            font-weight: 700;
+            margin: 10px 0 10px 10px;
+        }
+        button {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .card-body {
+            padding: 0;
+        }
+        .card-footer {
+            border: none;
+            background: none;
+        }
+    }
+}

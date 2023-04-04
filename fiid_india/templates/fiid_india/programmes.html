@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'fiid_india/programmes_page/style.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<section id="programmes-overview">
+    <div class="container">
+        <a href="{% url 'fiid-india:home' %}">
+            <button class="primary-btn go-back"><i class="fa-solid fa-arrow-left me-2"></i>Go back</button>
+        </a>
+        <div class="container-fluid">
+            <h3 class="heading">Programmes overview</h3>
+            <div class="ratio ratio-16x9">
+                <img class="w-100"
+                    src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                    alt="">
+            </div>
+            <p>
+                At FIID India, we believe that our mission and vision can only be achieved
+                through a holistic approach that addresses the root causes of poverty,
+                inequality, and underdevelopment in rural communities. We undertake a wide
+                range of activities to promote social welfare and economic development,
+                including organizing various programs, seminars, activities, lectures,
+                conferences, meetings, and workshops to raise awareness and promote
+                active involvement in social, charitable, humanitarian, philanthropic, and
+                religious services.
+            </p>
+            <p>
+                One of our main focuses is on promoting health and family welfare. We
+                recognize that access to basic healthcare services is a fundamental right of
+                every individual, and we strive to make quality healthcare services available
+                to rural communities across India. To achieve this, we organize health camps,
+                awareness programs, and training sessions on various health-related issues,
+                including sanitation, hygiene, nutrition, and reproductive health.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="core-programmes">
+    <div class="container">
+        <h3 class="heading main-heading">Our Core Programmes</h3>
+        <div class="row row-cols-1 row-cols-lg-3 g-4">
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        class="card-img-top" alt="Skyscrapers" />
+
+                    <div class="card-body">
+                        <h5 class="card-title">Health Camps</h5>
+                        <!--
+                        <div class="card-footer">
+                            <a href="#">
+                                <button class="primary-btn">Know more<i
+                                        class="fa-solid fa-arrow-right ms-2"></i></button>
+                            </a>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        class="card-img-top" alt="Los Angeles Skyscrapers" />
+
+                    <div class="card-body">
+                        <h5 class="card-title">Awareness Programmes</h5>
+
+                        <!--
+                        <div class="card-footer">
+                            <a href="#">
+                                <button class="primary-btn">Know more<i
+                                        class="fa-solid fa-arrow-right ms-2"></i></button>
+                            </a>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1512238972088-8acb84db0771?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        class="card-img-top" alt="Palm Springs Road" />
+                    <div class="card-body">
+                        <h5 class="card-title">Training Sessions</h5>
+
+                        <!--
+                        <div class="card-footer">
+                            <a href="#">
+                                <button class="primary-btn">Know more<i
+                                        class="fa-solid fa-arrow-right ms-2"></i></button>
+                            </a>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</section>
+
+{% include 'footer.html' %}
+{% endblock content %}

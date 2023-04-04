@@ -1,13 +1,13 @@
-from django.contrib import admin
-from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from django.urls import path
+from .import views
+
+app_name = 'fiid-india'
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('fiid_india_pages.urls', namespace="fiid-india-pages"))
+    path('', views.HomePageView.as_view(), name='home'),
+    path('about/', views.AboutPageView.as_view(), name='about'),
+    path('programs/', views.ProgramsPageView.as_view(), name='programmes'),
+    path('objectives/', views.ObjectivesPageView.as_view(), name='objectives'),
+    path('contact/', views.ContactPageView.as_view(), name='contact'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)

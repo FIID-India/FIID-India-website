@@ -1,56 +1,25 @@
-{% load static %}
-{% url 'fiid-india-pages:home-page' as homePage %}
-{% url 'fiid-india-pages:about-page' as aboutPage %}
-{% url 'fiid-india-pages:about-gallary' as aboutGallary %}
-{% url 'fiid-india-pages:programmes-page' as programmesPage %}
-{% url 'fiid-india-pages:programmes-gallary' as programmesGallary %}
-{% url 'fiid-india-pages:gallary-page' as Gallary %}
-{% url 'fiid-india-pages:objectives-page' as objectivesPage %}
-{% url 'fiid-india-pages:contact-page' as contactPage %}
-{% url 'fiid-india-pages:files-page' as filesPage %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-        <!-- Fontawesome CSS -->
-        <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
-        <link href="{% static 'navbar/images/logo.png' %}"
-              rel="shortcut icon"
-              type="image/x-icon"
-              href="favicon.ico"/>
-        <title>{% block sectiontitle %}FIID INDIA{% endblock %}</title>
-        <!-- Custom CSS -->
-        {% block stylesheet %}{% endblock %}
-    </head>
-    <body>
-        {% include "navbar.html" %}
-        <div style="margin-top: 3.9rem;">
-            {% if messages %}
-                {% for message in messages %}
-                    <div style="margin-bottom: 0 !important;"
-                         class="alert alert-dismissible {% if message.tags %}{{ message.tags }}{% endif %}"
-                         id="alert"
-                         role="alert">
-                        <div class="text-center">{{ message }}</div>
-                        <button type="button"
-                                class="btn-close shadow-none"
-                                data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% block content %}{% endblock %}
-    </div>
-    {% include "footer.html" %}
-    <!-- Bootstrap JS -->
-    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-    <!-- Custom JS -->
-    <script src="{% static 'navbar/js/index.js' %}"></script>
-    <!-- Fontawesome JS -->
-    <script src="{% static 'fontawesome/js/all.js' %}"></script>
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIID INDIA</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/title-icon.svg' %}">
+    <link rel="stylesheet" href="{% static 'Bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'fontawesome/all.min.css' %}">
+    {% block styles %}{% endblock styles %}
+</head>
+
+<body>
+
+    {% block content %}
+    {% endblock content %}
+
+    <script src="{% static 'Bootstrap/bootstrap.js' %}"></script>
+    <script src="{% static 'fontawesome/all.min.js' %}"></script>
 </body>
+
 </html>

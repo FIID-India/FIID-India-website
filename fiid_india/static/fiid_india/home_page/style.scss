@@ -1,0 +1,105 @@
+@import "../base";
+
+#hero {
+    height: 100vh !important;
+    background-color: $hero-background;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media only screen and (max-width: 1024px) {
+        height: auto !important;
+        padding: 15rem 0 10rem 0;
+    }
+
+    .title-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        button {
+            max-width: fit-content;
+            margin-top: 1rem;
+        }
+        h4 {
+            font-family: "Ubuntu";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 50.5px;
+            line-height: 130%;
+            color: #000000;
+            .special-mention {
+                color: $base-color;
+            }
+        }
+    }
+}
+
+#about {
+    @media only screen and (min-width: 992px) {
+        padding: 50px 0;
+    }
+    padding: 25px 0;
+    h3 {
+        margin-bottom: 1rem;
+    }
+    .ratio {
+        margin-bottom: 2rem;
+    }
+    img {
+        border-radius: 30px;
+        object-fit: cover;
+    }
+    p {
+        font-size: 16px;
+        color: #525252;
+        margin-left: 5px;
+        text-align: justify;
+    }
+}
+
+#objectives {
+    @media only screen and (min-width: 992px) {
+        padding: 50px 0;
+    }
+    padding: 25px 0;
+
+    h3 {
+        margin-bottom: 1rem;
+        max-width: 500px;
+    }
+    img {
+        border-radius: 30px;
+        object-fit: cover;
+    }
+    .ratio {
+        margin-bottom: 2rem;
+    }
+    p {
+        font-size: 16px;
+        color: #525252;
+        margin-left: 5px;
+        text-align: justify;
+    }
+}
+
+#newsletters {
+    @media only screen and (min-width: 992px) {
+        padding: 50px 0 100px 0;
+    }
+    padding: 25px 0 50px 0;
+    h3 {
+        margin-bottom: 1rem;
+    }
+    .img-group {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+    }
+}

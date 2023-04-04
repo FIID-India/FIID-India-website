@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'fiid_india/about_page/style.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<section id="about">
+    <div class="container">
+        <a href="{% url 'fiid-india:home' %}">
+            <button class="primary-btn go-back"><i class="fa-solid fa-arrow-left me-2"></i>Goback</button>
+        </a>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h3>Who we are</h3>
+                <h4 class="quote">"About FIID India: Promoting Integral Development and Empowering
+                    Communities in Rural India"</h4>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="ratio ratio-16x9">
+                    <img class="w-100"
+                        src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        alt="">
+                </div>
+                <p>
+                    Fransalian Initiatives for Integral Development in India (FIID India) is a non-profit
+                    organization
+                    dedicated to promoting social welfare and economic development in rural communities across
+                    India.
+                    Our mission is to improve the lives of individuals in underserved areas by providing access to
+                    essential services, including healthcare, education, and vocational training.
+                </p>
+
+                <p>
+                    We recognize that India is a diverse country with a vast array of cultures, traditions, and
+                    languages. At FIID India, we believe that every individual, regardless of their caste, creed,
+                    religion, community, or language, should have access to these basic services. We work tirelessly
+                    to
+                    bridge the gap between the rural and urban areas of India, where access to these services is
+                    often
+                    limited.
+                </p>
+
+                <p>
+                    Our organization was founded on the belief that development should be holistic and inclusive. We
+                    believe that sustainable development can only be achieved by addressing the root causes of
+                    poverty
+                    and inequality. Our approach is grounded in the principles of integral development, which
+                    combines
+                    economic, social, and spiritual dimensions of development.
+                </p>
+
+                <p>
+                    Healthcare is one of the most critical aspects of our work at FIID India. We believe that access
+                    to
+                    quality healthcare is a fundamental right and that it should be available to everyone,
+                    regardless of
+                    their economic status. Our healthcare programs focus on improving the overall health of
+                    communities
+                    by providing access to primary healthcare services, health education, and preventive care. We
+                    also
+                    organize health camps, which provide basic medical check-ups, medicines, and referrals to
+                    specialist
+                    doctors.
+                </p>
+
+                <p>
+                    Education is another core focus of our work at FIID India. We believe that education is the key
+                    to
+                    breaking the cycle of poverty and inequality. Our education programs aim to provide access to
+                    quality education to children in rural areas, who are often denied this opportunity due to
+                    various
+                    reasons. We work with local schools to improve the quality of education and provide scholarships
+                    to
+                    students from economically weaker backgrounds. We also organize computer training programs,
+                    vocational training, and skill development programs, which equip individuals with the skills
+                    necessary to thrive in the modern economy.
+                </p>
+
+                <p>
+                    In addition to healthcare and education, we also focus on economic development. We believe that
+                    sustainable economic development is essential for the long-term wellbeing of communities. Our
+                    programs focus on providing vocational training and entrepreneurship development, which help
+                    individuals to generate income and become self-sufficient. We also support women's self-help
+                    groups,
+                    which provide a platform for women to come together and work towards their economic empowerment.
+                </p>
+
+                <p>
+                    At FIID India, we are committed to building a world where everyone has access to basic
+                    healthcare,
+                    education, and other essential services. We believe that development should be holistic and
+                    inclusive, and we work tirelessly towards achieving this goal. Our work has impacted the lives
+                    of
+                    thousands of individuals in rural communities across India, and we are proud of the progress we
+                    have
+                    made so far. However, there is still much work to be done, and we invite you to join us on this
+                    journey towards a brighter future for all.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+{% endblock content %}

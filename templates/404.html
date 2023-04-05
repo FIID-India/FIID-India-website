@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'fiid_india/404_page/style.css' %}">
+{% endblock styles %}
+
+{% block content %}
+
+<section>
+    <div class="container">
+        <div class="wrap">
+            <h3 class="heading">404</h3>
+            <p>Page you are looking for does not exist</p>
+            <button onclick="history.back()" class="primary-btn">Go back</button>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

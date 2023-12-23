@@ -19,6 +19,14 @@
                 <h3>Contact</h3>
                 <span class="quote">"Have a question or feedback? We're all ears. Get in touch with us
                     today."</span>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success alert-dismissible fade show mb-3 mt-3" role="alert">
+                            {{message}}
+                        <button type="button" class="btn-close shadow-none" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div class="row row-cols-1 row-cols-lg-2 g-4">
                 <div class="col">

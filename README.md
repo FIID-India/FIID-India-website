@@ -4,5 +4,5 @@
 - Clone the repository
 - Create feature branch
 - Make changes
-- fetch the code base from the github and merge with it
-- make pull request
+- Fetch the code base from the github and merge with it
+- Make pull request
